@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dei_field.name %>
+</p>
+
+<p>
+  <strong>Dei category:</strong>
+  <%= @dei_field.dei_category_id %>
+</p>
+
+<%= link_to 'Edit', edit_dei_field_path(@dei_field) %> |
+<%= link_to 'Back', dei_fields_path %>

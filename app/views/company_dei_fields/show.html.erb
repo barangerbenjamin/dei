@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @company_dei_field.company_id %>
+</p>
+
+<p>
+  <strong>Dei field:</strong>
+  <%= @company_dei_field.dei_field_id %>
+</p>
+
+<%= link_to 'Edit', edit_company_dei_field_path(@company_dei_field) %> |
+<%= link_to 'Back', company_dei_fields_path %>

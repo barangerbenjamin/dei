@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Company Dei Fields</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Dei field</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @company_dei_fields.each do |company_dei_field| %>
+      <tr>
+        <td><%= company_dei_field.company_id %></td>
+        <td><%= company_dei_field.dei_field_id %></td>
+        <td><%= link_to 'Show', company_dei_field %></td>
+        <td><%= link_to 'Edit', edit_company_dei_field_path(company_dei_field) %></td>
+        <td><%= link_to 'Destroy', company_dei_field, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Company Dei Field', new_company_dei_field_path %>

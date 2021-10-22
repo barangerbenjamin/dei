@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dei Field Answers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Dei field</th>
+      <th>Encrypted answer</th>
+      <th>Encrypted answer iv</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dei_field_answers.each do |dei_field_answer| %>
+      <tr>
+        <td><%= dei_field_answer.user_id %></td>
+        <td><%= dei_field_answer.dei_field_id %></td>
+        <td><%= dei_field_answer.encrypted_answer %></td>
+        <td><%= dei_field_answer.encrypted_answer_iv %></td>
+        <td><%= link_to 'Show', dei_field_answer %></td>
+        <td><%= link_to 'Edit', edit_dei_field_answer_path(dei_field_answer) %></td>
+        <td><%= link_to 'Destroy', dei_field_answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dei Field Answer', new_dei_field_answer_path %>

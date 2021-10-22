@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<br><br><br>
+<h1><%= @company.name.upcase %></h1>
+<br>
+<br>
+<br>
+
+<h3>COMPANY SETTINGS</h3>
+<br>
+<br>
+<br>
+
+
+
+<h3>Diversity Data</h3>
+<% DeiField.all.each do |dei_field| %>
+  <% action = @company.company_dei_fields.pluck(:dei_field_id).include?(dei_field.id) ? (link_to "toggle off", company_dei_field_toggle_off_path(@company.company_dei_fields.where(dei_field: dei_field).first), method: :delete) : (link_to "toggle on", company_toggle_on_path(@company, dei_field: dei_field)) %>
+  <p><%= dei_field.name %> - <%= action %> <p>
+<% end %>

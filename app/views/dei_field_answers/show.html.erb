@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @dei_field_answer.user_id %>
+</p>
+
+<p>
+  <strong>Dei field:</strong>
+  <%= @dei_field_answer.dei_field_id %>
+</p>
+
+<p>
+  <strong>Encrypted answer:</strong>
+  <%= @dei_field_answer.encrypted_answer %>
+</p>
+
+<p>
+  <strong>Encrypted answer iv:</strong>
+  <%= @dei_field_answer.encrypted_answer_iv %>
+</p>
+
+<%= link_to 'Edit', edit_dei_field_answer_path(@dei_field_answer) %> |
+<%= link_to 'Back', dei_field_answers_path %>

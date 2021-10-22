@@ -1,0 +1,23 @@
+<br><br><br>
+<h1> BEN's PROFILE</h1>
+<br>
+<br>
+<br>
+<br>
+
+<h2> DE&I fields to fill</h2>
+<% if current_user.company.company_dei_fields.any? %>
+  <% current_user.company.company_dei_fields.each do |cdf| %>
+    <h4><%= cdf.dei_field.name %></h4>
+    <% existing_answer = DeiFieldAnswer.joins(:user).where(dei_field: cdf.dei_field, user: current_user).first&.encrypted_answer %>
+
+    <%= simple_form_for DeiFieldAnswer.new do |f| %>
+      <%= f.input :encrypted_answer, label: false, input_html: { value: existing_answer.nil? ? '' : existing_answer } %>
+      <%= f.hidden_field :dei_field_id, value: cdf.dei_field.id %>
+      <%= f.submit %>
+    <% end %>
+
+  <% end %>
+<% else %>
+  <p>Your company doesn't care about DE&I</p>
+<% end %>
